@@ -40,6 +40,19 @@ npm run dev
 ```
 Visit http://localhost:5173.
 
+## Deploy (Render)
+
+This repo includes a `render.yaml` Blueprint that sets up both services.
+
+1. Create a free [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) cluster and copy its connection string.
+2. In the [Render dashboard](https://dashboard.render.com), click **New + → Blueprint** and connect this GitHub repo.
+3. Render reads `render.yaml` and creates two services:
+   - `ai-support-agent-server` (Docker web service)
+   - `ai-support-agent-client` (static site)
+4. When prompted, fill in the server's env vars: `OPENROUTER_API_KEY` and `MONGO_URI` (your Atlas string). `JWT_SECRET` is generated automatically.
+5. Once the server deploys, copy its URL (e.g. `https://ai-support-agent-server.onrender.com`), set it as the client service's `VITE_API_URL` env var, then trigger a manual redeploy of the client (it's baked in at build time).
+6. Open the client service's URL — that's your deployed link.
+
 ## API
 
 | Route | Method | Auth | Description |
