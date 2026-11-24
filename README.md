@@ -2,6 +2,8 @@
 
 Minimal full-stack AI customer support chat app: JWT auth, MongoDB-backed chat history, OpenRouter-powered AI replies.
 
+**Live demo:** https://ai-support-agent-client.onrender.com (free tier — may take ~50s to wake up if idle)
+
 ## Structure
 
 - `client/` — React (Vite) frontend
